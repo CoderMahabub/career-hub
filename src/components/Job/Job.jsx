@@ -1,9 +1,11 @@
 import PropTypes from "prop-types";
 import { MdLocationOn } from "react-icons/md";
 import { FaDollarSign } from "react-icons/fa6";
+import { Link } from "react-router-dom";
 
 const Job = ({ job }) => {
   const {
+    id,
     logo,
     job_title,
     company_name,
@@ -30,9 +32,7 @@ const Job = ({ job }) => {
               {job_type}
             </button>
           </div>
-          <div className="card-actions">
-            <button className="btn btn-primary">View Details</button>
-          </div>
+
           <div className="flex items-center mt-4">
             <h2 className="flex mr-4">
               <MdLocationOn className="text-2xl mr-2" />
@@ -42,6 +42,11 @@ const Job = ({ job }) => {
               <FaDollarSign />
               {salary}
             </h2>
+          </div>
+          <div className="card-actions">
+            <Link to={`/job/${id}`}>
+              <button className="btn btn-primary">View Details</button>
+            </Link>
           </div>
         </div>
       </div>
